@@ -1,7 +1,6 @@
 import { feathers } from '@feathersjs/feathers'
 import * as express from '@feathersjs/express'
 import socketio from '@feathersjs/socketio'
-import service from 'feathers-knex'
 import configuration from '@feathersjs/configuration'
 import { services } from './services'
 import { sqlite } from './sqlite'

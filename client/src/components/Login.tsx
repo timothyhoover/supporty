@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import Input from './Input'
@@ -16,14 +15,13 @@ const Login = ({ closeModal }: LoginProps) => {
     handleSubmit,
   } = useForm()
 
-  const handleLogin = async (data: FieldValues, role: string) => {
+  const handleLogin = async (data: FieldValues) => {
     const notification = toast.loading('Logging you in...')
     try {
       await feathersClient.authenticate({
         strategy: 'local',
         email: data.email,
         password: data.password,
-        role,
       })
       toast.success('Successfully Logged In', {
         id: notification,
@@ -44,7 +42,7 @@ const Login = ({ closeModal }: LoginProps) => {
         password: data.password,
         role,
       })
-      await handleLogin(data, role)
+      await handleLogin(data)
       toast.success('Successfully Registered', {
         id: notification,
       })
@@ -83,7 +81,7 @@ const Login = ({ closeModal }: LoginProps) => {
         />
       </div>
       <Button
-        onClick={handleSubmit(data => handleLogin(data, 'admin'))}
+        onClick={handleSubmit(data => handleLogin(data))}
         className="w-full text-white bg-blue-500 fill-blue-500"
         size="sm"
       >

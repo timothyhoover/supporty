@@ -26,7 +26,7 @@ const TickList = ({ user }: { user: User | undefined }) => {
         .service('tickets')
         .find({ query: { $limit: 1000 } }) // TODO: setup limit and pagination on tickets service
       setTickets(
-        res.data.sort((a: Ticket, b: Ticket) => b.createdAt - a.createdAt)
+        res?.data?.sort((a: Ticket, b: Ticket) => b.createdAt - a.createdAt)
       )
     } catch (error) {
       console.log(error)
@@ -36,10 +36,10 @@ const TickList = ({ user }: { user: User | undefined }) => {
     const getTickets = async () => await getAllTickets()
     if (user?.role === 'admin') {
       getTickets()
-    }
-    feathersClient.service('tickets').on('created', getTickets)
-    return () => {
-      feathersClient.service('tickets').removeListener('created', getTickets)
+      feathersClient.service('tickets').on('created', getTickets)
+      return () => {
+        feathersClient.service('tickets').removeListener('created', getTickets)
+      }
     }
   }, [user])
 
