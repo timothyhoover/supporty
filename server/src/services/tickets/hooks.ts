@@ -7,30 +7,26 @@ import {
   ticketResolver,
   ticketExternalResolver,
   ticketDataResolver,
-  ticketPatchResolver,
-  ticketQueryResolver
+  ticketPatchResolver
 } from './schema'
 
 const ticketHooks = {
   around: {
     all: [
-      authenticate('jwt'),
       hooks.resolveExternal(ticketExternalResolver),
       hooks.resolveResult(ticketResolver)
     ]
   },
   before: {
-    all: [
-      hooks.validateQuery(ticketQueryValidator),
-      hooks.resolveQuery(ticketQueryResolver)
-    ],
-    find: [],
-    get: [],
+    all: [hooks.validateQuery(ticketQueryValidator)],
+    find: [authenticate('jwt')],
+    get: [authenticate('jwt')],
     create: [
       hooks.validateData(ticketDataValidator),
       hooks.resolveData(ticketDataResolver)
     ],
     patch: [
+      authenticate('jwt'),
       hooks.validateData(ticketPatchValidator),
       hooks.resolveData(ticketPatchResolver)
     ],

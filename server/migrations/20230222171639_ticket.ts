@@ -4,8 +4,10 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('tickets', table => {
     table.increments('id')
     table.string('description')
+    table.string('userName')
+    table.string('userEmail')
+    table.string('status')
     table.bigint('createdAt')
-    table.bigint('userId').references('id').inTable('users')
   })
 }
 
