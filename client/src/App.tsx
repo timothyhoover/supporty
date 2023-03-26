@@ -80,7 +80,7 @@ function App() {
       <TicketList user={user} />
       <Modal onClose={() => setOpen(false)} show={open}>
         <Modal.Header>
-          {user?.role === 'admin' ? 'Admins Only' : 'Submit A Support Request'}
+          {loginModal ? 'Admins Only' : 'Submit A Support Request'}
         </Modal.Header>
         <Modal.Body>
           {loginModal ? (
