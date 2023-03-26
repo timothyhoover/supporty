@@ -1,0 +1,37 @@
+{
+  "name": "supporty-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+      "migrate": "knex migrate:latest",
+    "migrate:make": "knex migrate:make"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@feathersjs/typebox": "^5.0.1",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@feathersjs/authentication-client": "^5.0.2",
+    "@feathersjs/authentication-local": "^5.0.1",
+    "@feathersjs/configuration": "^5.0.1",
+    "@feathersjs/errors": "^5.0.1",
+    "@feathersjs/express": "^5.0.1",
+    "@feathersjs/feathers": "^5.0.1",
+    "@feathersjs/knex": "^5.0.1",
+    "@feathersjs/socketio": "^5.0.1",
+    "feathers-knex": "^8.0.1",
+    "knex": "^2.4.2",
+    "mysql": "^2.18.1",
+    "sqlite3": "^5.1.6",
+    "winston": "^3.8.2"
+  }
+}
