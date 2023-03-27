@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "concurrently --kill-others-on-fail \"cd server && nodemon --exec npm start\" \"cd client && npm run start\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "concurrently \"cd server && npm install\" \"cd client && npm install\""
   },
   "keywords": [],
   "author": "",
