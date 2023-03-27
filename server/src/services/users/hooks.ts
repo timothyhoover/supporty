@@ -15,29 +15,6 @@ import { UserService } from './index'
 import { HookContext } from '@feathersjs/feathers'
 import { errors } from '@feathersjs/errors'
 
-const restrictUserToSelf = (context: HookContext) => {
-  if (context?.params?.user?.id) {
-    context.params.query.id = context.params.user.id
-  }
-  return context
-}
-
-const convertGetToFind = async (context: HookContext) => {
-  let result = await context.service.find({
-    ...context.params,
-    query: { id: context?.id }
-  })
-
-  result = result.data?.[0] ? result.data[0] : result[0]
-
-  if (!result) {
-    throw new errors.NotFound('Not Found')
-  }
-  context.result = result
-
-  return context
-}
-
 const userHooks = {
   around: {
     all: [
@@ -56,8 +33,8 @@ const userHooks = {
       hooks.validateQuery(userQueryValidator),
       hooks.resolveQuery(userQueryResolver)
     ],
-    find: [restrictUserToSelf],
-    get: [convertGetToFind],
+    find: [],
+    get: [],
     create: [
       hooks.validateData(userDataValidator),
       hooks.resolveData(userDataResolver)

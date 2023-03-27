@@ -11,6 +11,7 @@ export const ticketSchema = Type.Object(
     description: Type.String(),
     status: Type.String(),
     createdAt: Type.Number(),
+    updatedAt: Type.Number(),
     userName: Type.String(),
     userEmail: Type.String()
   },
@@ -24,7 +25,7 @@ export const ticketExternalResolver = resolve<Ticket, HookContext>({})
 
 export const ticketDataSchema = Type.Pick(
   ticketSchema,
-  ['description', 'userName', 'userEmail', 'status', 'createdAt'],
+  ['description', 'userName', 'userEmail', 'status'],
   {
     $id: 'TicketData'
   }
@@ -45,15 +46,15 @@ export const ticketPatchValidator = getValidator(
   ticketPatchSchema,
   dataValidator
 )
-export const ticketPatchResolver = resolve<Ticket, HookContext>({})
+export const ticketPatchResolver = resolve<Ticket, HookContext>({
+  updatedAt: async () => {
+    return Date.now()
+  }
+})
 
 export const ticketQueryProperties = Type.Pick(ticketSchema, [
   'id',
-  'description',
-  'status',
-  'createdAt',
-  'userEmail',
-  'userName'
+  'userEmail'
 ])
 export const ticketQuerySchema = Type.Intersect(
   [

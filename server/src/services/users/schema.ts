@@ -61,7 +61,7 @@ export type UserQuery = Static<typeof userQuerySchema>
 export const userQueryValidator = getValidator(userQuerySchema, queryValidator)
 export const userQueryResolver = resolve<UserQuery, HookContext>({
   id: async (value, user, context) => {
-    if (context.params.user && context.method !== 'find') {
+    if (context.params.user) {
       return context.params.user.id
     }
 
