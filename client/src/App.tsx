@@ -44,8 +44,12 @@ function App() {
     reAuthenticate()
   })
 
-  const handleLogout = () => {
-    localStorage.removeItem('feathers-jwt')
+  const handleLogout = async () => {
+    try {
+      await feathersClient.logout()
+    } catch (error) {
+      localStorage.removeItem('feathers-jwt')
+    }
     window.location.reload()
   }
 
