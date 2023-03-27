@@ -27,8 +27,4 @@ feathersClient.configure(
   })
 )
 
-feathersClient
-  .service('refreshAllClients')
-  .on('created', () => window.location.reload())
-
 export default feathersClient
