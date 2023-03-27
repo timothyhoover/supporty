@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "concurrently --kill-others-on-fail \"cd server && nodemon --exec npm start\" \"cd client && npm run start\"",
-    "install": "concurrently \"cd server && npm install\" \"cd client && npm install\""
+    "install": "concurrently \"cd server && npm install\" \"cd client && npm install\"",
+    "migrate": "cd server && npm run migrate"
   },
   "keywords": [],
   "author": "",
