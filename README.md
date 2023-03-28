@@ -2,6 +2,10 @@
 
 Built with Feathers.js, React.js and Tailwind CSS
 
+### Demo
+
+https://web-production-3b91.up.railway.app/
+
 ## Getting Started
 
 1. Make sure you have NodeJS and npm installed.
