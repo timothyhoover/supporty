@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "concurrently --kill-others-on-fail \"cd server && nodemon --exec npm start\" \"cd client && npm run start\"",
+    "start:dev": "concurrently --kill-others-on-fail \"cd server && nodemon --exec npm run dev\" \"cd client && npm run start\"",
+    "start": "cd server && npm run start",
+    "build": "(cd server && npm run build) & cd client && npm run build && cp -R ./build/ ../server/build",
     "install": "concurrently \"cd server && npm install\" \"cd client && npm install\"",
-    "migrate": "cd server && npm run migrate"
+    "migrate": "cd server && npm run migrate",
+    "migrate:make": "cd server && npm run migrate:make"
+  },
+  "engines": {
+    "node": "18.14.0"
   },
   "keywords": [],
   "author": "",

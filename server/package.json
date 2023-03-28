@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "dev": "ts-node src/index.ts",
+    "build": "tsc & npm run migrate",
+    "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "knex migrate:latest",
     "migrate:make": "knex migrate:make"
@@ -15,7 +17,7 @@
   "devDependencies": {
     "@feathersjs/typebox": "^5.0.1",
     "@types/express": "^4.17.17",
-    "@types/node": "^18.15.7",
+    "@types/node": "^18.15.10",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   },
@@ -32,7 +34,9 @@
     "feathers-knex": "^8.0.1",
     "knex": "^2.4.2",
     "mysql": "^2.18.1",
+    "pg": "^8.10.0",
     "sqlite3": "^5.1.6",
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "typescript": "^5.0.2"
   }
 }

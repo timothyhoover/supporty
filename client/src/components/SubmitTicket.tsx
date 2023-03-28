@@ -16,7 +16,7 @@ const SubmitTicket = ({ closeModal }: LoginProps) => {
     handleSubmit,
   } = useForm()
   const handleTicketSubmission = async (data: FieldValues) => {
-    const notification = toast.loading('Logging you in...')
+    const notification = toast.loading('Submitting ticket...')
     try {
       await feathersClient.service('tickets').create({
         userName: data.name,

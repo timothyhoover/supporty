@@ -1,7 +1,6 @@
 import React, { forwardRef, ForwardedRef, InputHTMLAttributes } from 'react'
 import classNames from 'classnames'
 import { twMerge } from 'tailwind-merge'
-import { v4 as uuidv4 } from 'uuid'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: string
@@ -31,7 +30,7 @@ const ForwardedRefInput = (
   if (error) {
     variant = 'danger'
   }
-  const id = uuidv4()
+  const id = Math.floor(Math.random() * 100000).toString()
   const inputClasses = twMerge(
     classNames([
       'block px-2.5 pb-2 pt-2.5 w-full text-black bg-transparent rounded-md border appearance-none peer',

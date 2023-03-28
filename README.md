@@ -12,7 +12,10 @@ Built with Feathers.js, React.js and Tailwind CSS
    npm install
    ```
 
-3. Run database migration which will initialize an SQLite database in the `supporty.sqlite` file.
+3. Ensure you have a postgresql downloaded
+4. Make a pg database and update the `/server/config/default.js` (postgresql) file with your pg credentials.
+
+5. Run database migration.
 
    ```
    npm run migrate

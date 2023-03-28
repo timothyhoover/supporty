@@ -22,7 +22,7 @@ export class TicketService<
 export const getOptions = (app: Application): KnexAdapterOptions => {
   return {
     paginate: app.get('paginate'),
-    Model: app.get('sqliteClient'),
+    Model: app.get('postgresClient'),
     name: 'tickets'
   }
 }

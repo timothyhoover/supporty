@@ -1,8 +1,6 @@
 import classNames from 'classnames'
 import { ForwardedRef, forwardRef, TextareaHTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
-import { v4 as uuidv4 } from 'uuid'
-
 interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   variant?: string
   error?: string
@@ -50,7 +48,7 @@ const TextareaField = (
   ])
 
   const wrapperClassNames = twMerge('relative w-full', wrapperClasses)
-  const id = uuidv4()
+  const id = Math.floor(Math.random() * 100000).toString()
 
   return (
     <>

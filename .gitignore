@@ -107,3 +107,6 @@ dist
 
 .DS_Store
 .history
+
+build
+lib

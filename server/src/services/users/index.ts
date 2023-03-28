@@ -18,7 +18,7 @@ export class UserService<
 
 export const getOptions = (app: Application): KnexAdapterOptions => {
   return {
-    Model: app.get('sqliteClient'),
+    Model: app.get('postgresClient'),
     name: 'users'
   }
 }
