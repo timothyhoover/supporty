@@ -30,3 +30,12 @@ Steps to use that app:
 2. Create an admin account
 3. In the admin dashboard, you should see the various requests and be able to update the status or respond.
 4. Alternatively you can open an incognito window to submit tickets and see them show in realtime in the admin dashboard.
+
+### Screenshots
+
+![Home Screen](./app-images/homescreen.png)
+![Admin Dashboard](./app-images/admin-dashboard.png)
+![Login](./app-images/login.png)
+![Admin Dashboard](./app-images/admin-dashboard.png)
+![Ticket Response](./app-images/reply-to-ticket.png)
+![Submit Ticket](./app-images/submit-ticket.png)
